@@ -2,7 +2,7 @@
 
 ## 简介
 
-欢迎来到我的GitHub项目 - [Ansible Playbook Practice](https://github.com/ZhaoKunqi/my-ansible-practice/)这是一个由我个人编写的Ansible Playbook练习题集，旨在帮助大家更好地理解和掌握Ansible Playbook的使用。
+欢迎来到我的GitHub项目 - [Ansible Playbook Practice](https://github.com/ZhaoKunqi/ansible-practice/)这是一个由我个人编写的Ansible Playbook练习题集，旨在帮助大家更好地理解和掌握Ansible Playbook的使用。
 
 在这个项目中，你会看到许多文件夹，每个文件夹都代表一道练习题。每个练习题都包含了一些相关的材料和需求，你可以根据这些信息来完成练习。同时，我也在每个题目的目录下提供了答案，你可以在完成练习后对照答案进行检查。
 
