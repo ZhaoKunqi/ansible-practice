@@ -1,26 +1,23 @@
-active_web_servers:
+---
+ansible_tower:
   hosts:
-    serverb.lab.example.com:
-    serverc.lab.example.com:
+    server[2:4].lab.gilbert.navy.private:
 
-inactive_web_servers:
+k8s_ndk:
   hosts:
-    serverd.lab.example.com:
-    servere.lab.example.com:
-    serverf.lab.example.com:
+    server[6:172].lab.gilbert.navy.private:
 
-region_eu:
+satellite_uplink_bak:
   hosts:
-    serverc.lab.example.com:
-    serverf.lab.example.com:
+    server[210-212].lab.gilbert.navy.private:
 
-web_servers:
+jumpserver:
+  hosts:
+    - server179.lab.gilbert.navy.private
+    - server180.lab.gilbert.navy.private
+    - server181.lab.gilbert.navy.private
+
+testing_env:
   children:
-    active_web_servers:
-    inactive_web_servers:
-
-all_servers:
-  hosts:
-    servera.lab.example.com:
-  children:
-    web_servers:
+    - k8s_ndk
+    - satellite_uplink_bak
