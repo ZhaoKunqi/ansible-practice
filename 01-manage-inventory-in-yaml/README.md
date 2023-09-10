@@ -64,8 +64,8 @@ jumpserver:
 
 health_code_testing:
   children:
-    - loadbalancer
-    - backend_servers
+    - loadbalancer:
+    - backend_servers:
 ```
 
 ## 结论
