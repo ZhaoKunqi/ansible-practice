@@ -1,23 +1,21 @@
 ---
-ansible_tower:
+ansible_tower_hosts:
   hosts:
-    server[2:4].lab.gilbert.navy.private:
+    server[2:4].healthcode.covid-apps.beijing.gov.cn:
 
-k8s_ndk:
+backend_servers:
   hosts:
-    server[6:172].lab.gilbert.navy.private:
+    server[6:172].healthcode.covid-apps.beijing.gov.cn:
 
-satellite_uplink_bak:
+loadbalancer:
   hosts:
-    server[210-212].lab.gilbert.navy.private:
+    server[210-212].healthcode.covid-apps.beijing.gov.cn:
 
 jumpserver:
   hosts:
-    - server179.lab.gilbert.navy.private
-    - server180.lab.gilbert.navy.private
-    - server181.lab.gilbert.navy.private
+    server[179-181].healthcode.covid-apps.beijing.gov.cn:
 
-testing_env:
+health_code_testing:
   children:
-    - k8s_ndk
-    - satellite_uplink_bak
+    loadbalancer:
+    backend_servers:
