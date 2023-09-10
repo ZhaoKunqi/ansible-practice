@@ -1,0 +1,13 @@
+---
+- name: Copy file and restart service
+  hosts: backend_servers
+  become: true
+  tasks:
+    - name: Copy file from URL
+      copy:
+        src: https://beijing-covid.cdc.gov.cn/covid-map.data
+        dest: /usr/share/nginx/covid-map/covid-map.data
+    - name: Restart health-code-cdc-map service
+      service:
+        name: health-code-cdc-map
+        state: restarted
