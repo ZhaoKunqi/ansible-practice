@@ -6,17 +6,19 @@
 
 ## 背景故事
 
-您是诺福克海军基地的系统工程师，在支持海军测试新软件的使命中发挥着重要作用。
+您是一位初级运维工程师，为了抗击疫情，您加入了北京健康码项目团队。在疫情恶化的情况下，北京实施了全面封城措施，限制了人员流动，以遏制疫情的蔓延。
 
-海军一直在不断推动技术的边界，您有责任确保他们的系统运行顺畅高效。
+不幸的是，您的上级领导和一群资深工程师，感染了病毒，并被送往传染病医院接受治疗。然而，幸运的是，您保持了健康，并被困在了北京健康码项目的服务器机房里。
 
-最近，海军收购了一种先进的软件解决方案，需要在各种系统上进行无缝部署和管理。这就是 Ansible 的用武之地。 Ansible 的自动化功能将使您能够有效地配置和管理软件在多个主机上。
+由于封城措施的实施，您被困在机房中，每天只能依靠穿着白色防护服的工作人员送来勉强维持生命体征的食物。
 
-但是，您面临一个小障碍。您收到的 Ansible 清单文件是过时的 INI 格式。虽然它在过去曾发挥过作用，但您知道 YAML 现在是 Ansible 清单的首选格式，因为它简单易读。
+尽管面临着营养不良的困扰，但您仍然坚守岗位，独自一人维护着北京健康码项目的服务器集群，为北京市民提供健康码和核酸检测服务器管理的服务。
 
-为了简化您的操作并让您的生活更轻松，您决定将清单文件转换为 YAML 格式。这不仅符合最佳实践，还将为您提供更直观和可管理的清单结构。
+在这个艰难的时期，您的上级领导通过手机给您发了一条微信消息，要求您将Ansible的主机清单文件`inventory.ini`转换为YAML格式的`inventory.yml`。
 
-有了您的专业知识和决心，您准备好开始实践并将 Ansible 清单文件从 INI 格式转换为 YAML 格式。让我们开始吧！
+尽管任务艰巨，但作为一名坚定的工程师，您接受了这个挑战，并决心完成任务，以确保系统的正常运行。
+
+现在，让我们开始转换Ansible清单文件的任务，将其从INI格式转换为YAML格式，以提高清单文件的可读性和可维护性。通过这个实践，您将更好地理解YAML格式的基本语法，并加深对Ansible清单格式的理解，为您的工作提供更好的基础。
 
 ## 目标
 
@@ -42,28 +44,26 @@
 
 ```yaml
 ---
-ansible_tower:
+ansible_tower_hosts:
   hosts:
-    server[2:4].lab.gilbert.navy.private:
+    server[2:4].healthcode.covid-apps.beijing.gov.cn:
 
-k8s_ndk:
+backend_servers:
   hosts:
-    server[6:172].lab.gilbert.navy.private:
+    server[6:172].healthcode.covid-apps.beijing.gov.cn:
 
-satellite_uplink_bak:
+loadbalancer:
   hosts:
-    server[210-212].lab.gilbert.navy.private:
+    server[210-212].healthcode.covid-apps.beijing.gov.cn:
 
 jumpserver:
   hosts:
-    - server179.lab.gilbert.navy.private
-    - server180.lab.gilbert.navy.private
-    - server181.lab.gilbert.navy.private
+    server[179-181].healthcode.covid-apps.beijing.gov.cn:
 
-testing_env:
+health_code_testing:
   children:
-    - k8s_ndk
-    - satellite_uplink_bak
+    - loadbalancer
+    - backend_servers
 ```
 
 ## 结论
