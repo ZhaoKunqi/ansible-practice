@@ -1,7 +1,53 @@
-# practice 02
+# 实践 02：使用Ansible的notify和handlers功能来优化
 
-## learn and use function "notify" and "handlers" in ansible playbook
+## 概述
 
-***
+在本实践中，您将学习如何在 Ansible的Playbook文件中使用notify和handlers功能来减少不必要的性能浪费。
+
+## 背景故事
+
+您是一位初级运维工程师，为了抗击疫情，您加入了北京健康码项目团队。在疫情恶化的情况下，北京实施了全面封城措施，限制了人员流动，以遏制疫情的蔓延。
+
+不幸的是，您的上级领导，一位资深工程师，感染了病毒，并被送往传染病医院接受治疗。然而，幸运的是，您保持了健康，并被困在了北京健康码项目的服务器机房里。
+
+由于封城措施的实施，您被困在机房中，每天只能依靠穿着白色防护服的工作人员送来勉强维持生命体征的食物。
+
+尽管面临着营养不良的困扰，但您仍然坚守岗位，独自一人维护着北京健康码项目的服务器集群，为北京市民提供健康码和核酸检测服务器管理的服务。
+
+在这个艰难的时期，您的上级领导，正在医院床上躺着咳嗽输液，仍然牢记项目的重要性，通过手机给您发了一条微信消息。
+
+命令您编辑并且改善Ansible playbook `health-code-upgrade.yml`，
+
+health-code-upgrade.yml这个playbook所做的事情就是，接受CDC疾控中心传来的疫情监测分布图并且使用copy模块复制到健康宝服务器供市民查阅。
+
+并且每次运行无论疫情监测分布图是否和之前一致没有改变也都会重启每台机器的 /etc/systemd/system/health-code-cdc-map.service
+
+您要利用`notify`和`handlers`功能，在执行`copy`模块后，如果内容没有改变，就跳过重启服务的步骤，以减少服务器的停机时间。
+
+尽管您营养不良，并且饿的眼睛冒光，但您毫不犹豫地接受了这个任务，并决心改进系统的维护流程，提高服务器的可用性。
+
+您深入研究了Ansible的`notify`和`handlers`功能，并将其应用于`health-code-upgrade.yml` playbook中。
+
+通过使用这些功能，您成功地优化了playbook的执行逻辑，使得当CDC疾控中心传来的疫情监测分布图与之前一致且未发生改变时，避免了不必要的服务重启操作。
+
+## 目标
+
+在本实践结束时，您将能够：
+
+* 简单理解Ansible Playbook中任务中notify作为可选项可以实现的功能
+* 初步理解Ansible Playbook中handlers的功能
+* 更好地理解 Ansible
+
+## 先决条件
+
+在开始本实践之前，您应该对 Ansible 清单格式和语法有基本的了解。
+
+## 步骤
 
 
+## 结论
+
+在本实践中，您学习了如何在Ansible Playbook添加notify和handlers优化性能和触发任务。
+
+
+希望这对您有帮助！ 
