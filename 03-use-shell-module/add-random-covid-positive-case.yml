@@ -1,0 +1,6 @@
+- name: randomly find 1000-2000 dao mei dan to fangcang
+  hosts: loadbalancer
+  become: True
+  tasks:
+  - name: generate random number to python script
+    shell: 'python3 add-random-dao-mei-dan.py --count {{ range(1000, 2001)|random }}'
