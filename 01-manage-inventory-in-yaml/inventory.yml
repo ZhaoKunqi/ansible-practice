@@ -15,6 +15,10 @@ jumpserver:
   hosts:
     server[179-181].healthcode.covid-apps.beijing.gov.cn:
 
+mariadb:
+  hosts:
+    server[185:194].healthcode.covid-apps.beijing.gov.cn:
+
 health_code_testing:
   children:
     loadbalancer:
