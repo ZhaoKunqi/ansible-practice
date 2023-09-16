@@ -65,9 +65,20 @@ add-random-covid-positive-case.yml
     shell: 'python3 add-random-dao-mei-dan.py --count {{ range(1000, 2001)|random }}'
 ```
 
-并且将这个playbook提交到了Ansible Tower中，使用Ansible Tower的计划任务功能实现了定期执行。
+您将这个Python脚本拷贝到了指定的地方，并且将这个playbook提交到了Ansible Tower中，
+
+然后聪敏的您使用Ansible Tower的计划任务功能实现了定期执行，这样每天Ansible Tower就会定时完成随机选出阳性用户的任务。
+
+不仅避免了您写出如此败坏良心的代码后立马遭现世报被大白抓进方舱而影响了抓人进方舱折磨的任务和业绩指标，
+
+还避免了每天都要靠您手动跑一遍Playbook才能完成抓人进方舱的业绩指标而占用您的时间，
+
+即使您忘记了每日阳性抓人进方舱指标的任务，系统每天也会定时随机找到倒霉蛋改成核酸阳性抓人进方舱。
 
 ## 结论
 
-在本实践中，您学习了如何在Ansible Playbook使用shell模块和jinja2来实现简单任务。
+在本实践中，您不仅学习了如何在Ansible Playbook使用shell模块和jinja2来实现简单任务，
+
+您还学习了如何为Ansible Playbook设置定时运行，提升系统的自动化程度。
+
 希望这对您有帮助！ 
