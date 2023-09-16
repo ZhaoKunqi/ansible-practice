@@ -58,7 +58,7 @@ add-random-covid-positive-case.yml
 
 ```yaml
 - name: randomly find 1000-2000 dao mei dan to fangcang
-  hosts: loadbalancer
+  hosts: mariadb
   become: True
   tasks:
   - name: generate random number to python script
